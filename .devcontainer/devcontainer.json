@@ -1,0 +1,11 @@
+{
+  "name": "Linux Desktop",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "forwardPorts": [6080],
+  "postCreateCommand": "echo Ambiente pronto!",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ]
+}
