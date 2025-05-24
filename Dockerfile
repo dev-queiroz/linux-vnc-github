@@ -13,7 +13,9 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Configura VNC
-RUN mkdir -p /root/.vnc
+RUN mkdir -p /root/.vnc \
+echo "developer" | vncpasswd -f > /root/.vnc/passwd \
+chmod 600 /root/.vnc/passwd
 COPY scripts/start.sh /start.sh
 COPY scripts/sync.sh /sync.sh
 RUN chmod +x /start.sh /sync.sh
