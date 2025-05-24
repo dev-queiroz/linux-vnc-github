@@ -13,12 +13,17 @@ mkdir -p /root/.vnc
 echo "developer" | vncpasswd -f > /root/.vnc/passwd
 chmod 600 /root/.vnc/passwd
 
-# Configura o arquivo xstartup do VNC para iniciar XFCE
-# shellcheck disable=SC2016
-echo '#!/bin/bash
+# Configura o arquivo xstartup do VNC para iniciar XFCE com dbus
+cat > /root/.vnc/xstartup << 'EOF'
+#!/bin/bash
 xrdb $HOME/.Xresources
-startxfce4 &' > /root/.vnc/xstartup
+dbus-launch startxfce4 &
+EOF
+
 chmod +x /root/.vnc/xstartup
+
+# Cria Xauthority se necessário
+touch /root/.Xauthority
 
 # Inicia o VNC Server
 export DISPLAY=:1

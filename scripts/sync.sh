@@ -1,8 +1,7 @@
 #!/bin/bash
 
 mkdir -p /app
-# shellcheck disable=SC2164
-cd /app
+cd /app || exit 1
 
 if [ -d ".git" ]; then
   git pull origin main

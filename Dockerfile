@@ -5,10 +5,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     xfce4 xfce4-goodies \
     tightvncserver \
-    git \
-    curl \
-    net-tools \
     novnc websockify \
+    dbus-x11 x11-utils x11-xserver-utils xterm \
+    git curl net-tools \
     keyboard-configuration \
     && apt-get clean
 
