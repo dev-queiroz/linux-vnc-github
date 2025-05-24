@@ -5,8 +5,16 @@ export USER=root
 # Sincroniza com GitHub
 ./sync.sh
 
-# Configura o arquivo xstartup do VNC para iniciar XFCE
+# Configura diretório /app para garantir cd
+mkdir -p /app
+
+# Configura senha VNC
 mkdir -p /root/.vnc
+echo "developer" | vncpasswd -f > /root/.vnc/passwd
+chmod 600 /root/.vnc/passwd
+
+# Configura o arquivo xstartup do VNC para iniciar XFCE
+# shellcheck disable=SC2016
 echo '#!/bin/bash
 xrdb $HOME/.Xresources
 startxfce4 &' > /root/.vnc/xstartup
