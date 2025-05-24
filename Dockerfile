@@ -1,5 +1,7 @@
 FROM debian:bullseye-slim
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y \
     xfce4 xfce4-goodies \
     tightvncserver \
@@ -7,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     net-tools \
     novnc websockify \
+    keyboard-configuration \
     && apt-get clean
 
 # Configura VNC
