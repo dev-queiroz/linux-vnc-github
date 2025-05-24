@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     tightvncserver \
     novnc websockify \
     dbus-x11 x11-utils x11-xserver-utils xterm \
+    midori \
     git curl net-tools \
     keyboard-configuration \
     && apt-get clean
